@@ -12,19 +12,16 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.pw.oembed.util.exception.BusinessException;
 
-
-
+@SuppressWarnings({"rawtypes", "unchecked"})
 @RestControllerAdvice(annotations = {Controller.class, RestController.class})
 public class CustomExceptionHandler {
 
-	@SuppressWarnings("unchecked")
 	@ExceptionHandler(BusinessException.class)
 	protected ResponseEntity handleBusinessException(HttpServletRequest request, HttpServletResponse response, Exception e) {
 		e.printStackTrace();
 		return new ResponseEntity(e.getMessage(), null, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@ExceptionHandler(Exception.class)
 	protected ResponseEntity handleException(HttpServletRequest request, HttpServletResponse response, Exception e) {
 		e.printStackTrace();
