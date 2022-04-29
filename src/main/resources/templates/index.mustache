@@ -1,0 +1,38 @@
+<body>
+	<!-- header -->
+	{{>layout/header}}
+	<!-- header -->
+
+	<!-- content -->
+	<div class="container-fluid search-header">
+		<div class="container">
+			<div class="row">
+				<h2 align="center">oEmbed Test</h2>
+			</div>
+			<div class="row">
+				<div class="custom-search">
+					<input type="text" class="custom-search-input"
+						placeholder="Enter url" name="url" id="url">
+					<button class="custom-search-botton" type="button" id="search">확인</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="container">
+			<table class="table table-striped" id="oembedTable">
+				<tbody>
+					<tr align="center">
+						<td>검색어를 입력해주세요!</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- content -->
+
+	<!-- footer -->
+	{{>layout/footer}}
+	<!-- footer -->
+	<script type="text/javascript" src="/js/index.js"></script>
+</body>
