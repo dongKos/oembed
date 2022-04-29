@@ -8,14 +8,6 @@ function getOembedData() {
 		contentType: 'application/json',
 		success: function(data) {
 			var dataObj = data;
-			/* var objectOrder = {
-				title: null,
-				type: null,
-				version: null
-			};
-			
-			dataObj = Object.assign(objectOrder, dataObj);*/
-			var html ="";
 			$('#oembedTable tbody').html('');
 			for(key in dataObj) {
 				if(dataObj[key] != null) {
@@ -29,8 +21,10 @@ function getOembedData() {
 		},
 		error: function(err) {
 			console.log(err);
-			if(err.status == 500 && err.responseText != null) {
-				console.log(err.responseText);
+			if(err.responseText != null) {
+				$('#oembedTable tbody').html('');
+				var html = "<tr align='center'><td>" + err.responseText + "</td></tr>";
+				$('#oembedTable tbody').append(html);
 			}
 		}
 	})
