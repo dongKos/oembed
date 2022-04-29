@@ -1,34 +1,8 @@
-spring:
-  mvc:
-      static-path-pattern: /static/**
-  config:
-    activate:
-      on-profile: "local"
-logging:
-    level:
-        root: info
-        org:
-            hibernate:
-                SQL: DEBUG
-                type:
-                    descriptor:
-                        sql:
-                            BasicBinder: TRACE
-            springframework:
-                jdbc:
-                    core:
-                        JdbcTemplate: DEBUG
-                        StatementCreatorUtils: TRACE
 server:
-    port: 8080
-#    error:
-#      include-stacktrace: never
-#      path: /error
-#      whitelabel:
-#        enabled: false
-    servlet:
-        context-path: /
-        encoding:
-            charset: UTF-8
-            enabled: true
-            force: true
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
