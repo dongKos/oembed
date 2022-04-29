@@ -48,5 +48,19 @@ class OembedServiceImplTest {
 			oembedService.searchOembed(vimeo);
 		});
 	}
+	
+	@Test
+	@DisplayName("인스타는 아직 지원하지 않아서 에러를 발생시킨다")
+	void test3() {
+		//given
+		String instagram = "https://www.instagram.com/p/BUawPlPF_Rx/";
+		
+		//when
+		BusinessException exception = assertThrows(BusinessException.class, 
+				() -> oembedService.searchOembed(instagram));
+		
+		//then
+		assertThat(exception.getMessage()).isEqualTo(ErrorCode.INSTAGREAM_NOT_SUPPORTED.getMessage());
+	}
 
 }
