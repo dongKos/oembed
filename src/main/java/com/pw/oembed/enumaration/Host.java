@@ -1,5 +1,8 @@
 package com.pw.oembed.enumaration;
 
+import lombok.Getter;
+
+@Getter
 public enum Host {
 	Twitter("https://publish.twitter.com/oembed?url="),
 	Youtube("https://www.youtube.com/oembed?url="),
@@ -11,7 +14,4 @@ public enum Host {
 		this.prefixUrl = prefixUrl;
 	}
 	
-	public String getPrefixUrl() {
-		return this.prefixUrl;
-	}
 }
