@@ -1,5 +1,12 @@
 @charset "utf-8";
 
+h2.title-txt {
+	color: #fff;
+	font-weight: bold;
+}
+td[name='title'] {
+	font-weight: bold;
+}
 .search-header {
 	background-color: #2eaab7;
 }
@@ -21,7 +28,7 @@
   top: 3px;
   bottom: 3px;
   border: 0;
-  background: #d1095e;
+  background: #ffcd45;
   color: #fff;
   outline: none;
   margin: 0;
