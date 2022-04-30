@@ -9,13 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.pw.oembed.service.OembedService;
+import com.pw.oembed.util.HttpUtil;
+import com.pw.oembed.util.MyObjectMapper;
 import com.pw.oembed.util.exception.BusinessException;
 import com.pw.oembed.util.exception.ErrorCode;
 
-@SpringBootTest
+//@SpringBootTest
 class OembedServiceImplTest {
-	
-	@Autowired OembedService oembedService;
+	MyObjectMapper mapper = new MyObjectMapper();
+	HttpUtil httpUtil = new HttpUtil(mapper);
+	OembedServiceImpl oembedService = new OembedServiceImpl(httpUtil);
 
 	@Test
 	@DisplayName("유튜브, 트위터, 비메오 아닌 url은 에러를 발생시킨다")
