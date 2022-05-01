@@ -1,5 +1,7 @@
 package com.pw.oembed.util;
 
+import java.util.concurrent.TimeUnit;
+
 import org.springframework.stereotype.Component;
 
 import com.pw.oembed.dto.SearchResult;
@@ -16,7 +18,9 @@ public class HttpUtil {
 	private final MyObjectMapper mapper;
 	
 	public SearchResult get(String url) throws Exception {
-		OkHttpClient client = new OkHttpClient();
+		OkHttpClient client = new OkHttpClient.Builder()
+				.connectTimeout(5, TimeUnit.SECONDS).build();
+		
 		Request request = new Request.Builder()
 				.url(url)
 				.build();

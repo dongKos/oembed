@@ -1,5 +1,7 @@
 package com.pw.oembed.service.impl;
 
+import java.util.concurrent.TimeoutException;
+
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -31,6 +33,8 @@ public class OembedServiceImpl implements OembedService {
 			searchResult = httpUtil.get(getHost(url).getPrefixUrl() + url);
 		} catch(JsonParseException e) {
 			throw new BusinessException(ErrorCode.API_RESULT_NOT_VALID);
+		} catch(TimeoutException e) {
+			throw new BusinessException(ErrorCode.API_TIMEOUT);
 		} catch(Exception e) {
 			throw new BusinessException(ErrorCode.UNKNOWN_ERROR);
 		}
